@@ -1,0 +1,33 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:handler name="RCD_CreateDivision" event="c:RCD_CreateDivision" action="{!c.closeModal}"/>
+<article class="slds-card">
+  <div class="slds-card__header slds-grid">
+    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+      <div class="slds-media__body">
+        <h3 class="slds-card__header-title"> 
+            <span>{!$Label.c.RCD_SearchForDivisions}</span>
+        </h3>
+      </div>
+      <div class="slds-no-flex">
+        <button class="slds-button slds-button_neutral" onclick="{!c.openmodal}">{!$Label.c.RCD_Button_New}</button>
+      </div>
+    </header>
+  </div>
+   <div role="dialog" tabindex="-1" aria-labelledby="header43" aura:id="Modalbox" class="slds-modal">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <button class="slds-button slds-modal__close slds-button--icon-inverse" title="{!$Label.c.RCD_Button_Close}" onclick="{!c.closeModal}">{!$Label.c.RCD_Button_Close}</button>
+                <h2 id="header43" class="slds-text-heading--medium">{!$Label.c.RCD_Header_CreateDivision}</h2>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium">
+                <div>
+                    <c:RCD_DivisionCreate/>
+                </div>
+            </div>
+            <div class="slds-modal__footer">
+            </div>
+        </div>
+    </div>
+    <div class="slds-backdrop " aura:id="Modalbackdrop"></div>
+    </article>
+</aura:component>

@@ -1,0 +1,13 @@
+.THIS {
+    width: 100%;
+    
+}
+
+.THIS .itemSelected {
+    background-color: rgba(128, 179, 255, 0.7) !important;
+}
+
+.THIS li:hover {
+    background-color: #cce0ff;
+    cursor: pointer;
+}

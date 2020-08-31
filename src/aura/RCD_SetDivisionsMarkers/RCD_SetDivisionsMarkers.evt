@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="RCD_SetDivisionsMarkers">
+    <aura:attribute name="foundDivisions" type="List"/>
+</aura:event>

@@ -1,0 +1,14 @@
+.DS_Store
+.sfdx
+.project
+.salesforce
+.settings
+node_modules
+.idea
+IlluminatedCloud/*
+*.iml
+/profiles/
+
+#/manifest/
+/.vscode/
+test.txt

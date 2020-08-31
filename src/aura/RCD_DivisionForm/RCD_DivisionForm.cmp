@@ -1,0 +1,48 @@
+<aura:component description="RCD_DivisionForm" controller="RCD_DivisionController" access="global" implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="searchedDivision" type="Division__c"
+                    default="{'sobjectType' : 'Division__c', 'Name' : '', 'Country__c' : '', 'City__c' : ''}"/>
+    <aura:attribute name="picklistValues" type="Object"/>
+    <aura:attribute name="noDivisionsFound" type="Boolean" default="false"/>
+
+    <aura:registerEvent name="RCD_ClearDivisionSearch" type="c:RCD_ClearDivisionSearch"/>
+    <aura:registerEvent name="RCD_SetDivisionsMarkers" type="c:RCD_SetDivisionsMarkers"/>
+    <aura:registerEvent name="RCD_SelectedDivisionUpdate" type="c:RCD_SelectedDivisionUpdate"/>
+    <aura:registerEvent name="RCD_NoDivisionsFound" type="c:RCD_NoDivisionsFound"/>
+
+    <c:RCD_PickListValues2 sObjectName="Division__c" fieldName="Country__c" picklistValues="{!v.picklistValues}"/>
+    <c:RCD_Spinner aura:id="spinner"/>
+    <lightning:card title="{!$Label.c.RCD_SearchForDivisions}">
+            <form>
+                <div class="slds-m-around--small">
+                    <lightning:input aura:id="searchform"
+                                     label="{!$Label.c.RCD_Name}"
+                                     value="{!v.searchedDivision.Name}"/>
+                </div>
+                <div class="slds-m-around--small">
+                    <lightning:select label="{!$Label.c.RCD_Country}"
+                                      aura:id="searchForm"
+                                      value="{!v.searchedDivision.Country__c}"
+                                      required="true">
+                        <option value="">{!$Label.c.RCD_SelectACountry}</option>
+                        <aura:iteration items="{!v.picklistValues}" var="item">
+                            <option value="{!item}">{!item}</option>
+                        </aura:iteration>
+                    </lightning:select>
+                </div>
+                <div class="slds-m-around--small">
+                    <lightning:input aura:id="searchform"
+                                     label="{!$Label.c.RCD_CIty}"
+                                     value="{!v.searchedDivision.City__c}"/>
+                </div>
+                <div class="slds-m-around--medium slds-align_absolute-center">
+                    <lightning:button label="{!$Label.c.RCD_Search}"
+                                      class="slds-m-top--medium"
+                                      variant="brand"
+                                      onclick="{!c.searchForDivision}"/>
+                    <lightning:button label="{!$Label.c.RCD_Clear}"
+                                      class="slds-m-top--medium"
+                                      variant="neutral" onclick="{!c.clear}"/>
+                </div>
+            </form>
+    </lightning:card>
+</aura:component>

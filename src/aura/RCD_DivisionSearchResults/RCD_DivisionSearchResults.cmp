@@ -1,0 +1,28 @@
+<aura:component description="RCD_DivisionSearchResults" access="global" implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="divisions" type="List" default="[]"/>
+    <aura:attribute name="divisionFound" type="Division__c"/>
+    <aura:handler event="c:RCD_SetDivisionsMarkers" action="{!c.handleDivisionsSelect}"/>
+    <aura:handler event="c:RCD_ClearDivisionSearch" action="{!c.handleSearchClear}"/>
+
+    <aura:if isTrue="{!v.divisionFound != undefined}">
+    <lightning:card title="{!$Label.c.RCD_Divisions}">
+        <div class="slds-p-left_medium slds-p-right_medium">
+            <ul class="slds-list_vertical slds-has-divider_top-space">
+                <aura:iteration items="{!v.divisions}" var="sDivision" indexVar="index">
+                    <aura:if isTrue="{!v.divisions.length == 1}">
+                        <li class="itemSelected slds-list__item slds-p-around_small">
+                            <c:RCD_DivisionItem division="{!sDivision}"/>
+                        </li>
+                    </aura:if>
+                    <aura:if isTrue="{!v.divisions.length > 1}">
+                        <li class="slds-list__item slds-p-around_small" aura:id="listItem"
+                            data-id="{!index}" onclick="{!c.addClass}">
+                            <c:RCD_DivisionItem division="{!sDivision}"/>
+                        </li>
+                    </aura:if>
+                </aura:iteration>
+            </ul>
+        </div>
+    </lightning:card>
+    </aura:if>
+</aura:component>

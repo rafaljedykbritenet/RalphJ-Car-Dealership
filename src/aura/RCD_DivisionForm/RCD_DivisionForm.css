@@ -1,0 +1,4 @@
+.THIS .hide-error-message > .slds-form-element > .slds-form-element__help {
+    display: none;
+    width: 100%;
+}

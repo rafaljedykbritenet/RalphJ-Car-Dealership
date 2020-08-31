@@ -1,0 +1,19 @@
+<aura:component description="RCD_DivisionsMap" implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute name="mapMarkers" type="Map[]"/>
+    <aura:attribute name="zoomLevel" type="Integer" default="" />
+    <aura:attribute name="divisionFound" type="Division__c"/>
+    <aura:attribute name="foundDivisions" type="List"/>
+
+    <aura:handler event="c:RCD_SetDivisionsMarkers" action="{!c.handleDivisionsSelect}"/>
+    <aura:handler name="change" value="{!v.foundDivisions}" action="{!c.showMarkers}"/>
+    <aura:handler event="c:RCD_SelectedDivisionUpdate" action="{!c.handleRowSelection}"/>
+    <aura:handler event="c:RCD_ClearDivisionSearch" action="{!c.handleSearchClear}"/>
+
+    <aura:if isTrue="{!v.divisionFound != undefined}">
+    <lightning:card title="Division Map" iconName="standard:address">
+		<div aura:id="listItem">
+        <lightning:map mapMarkers="{!v.mapMarkers}" zoomLevel="{!v.zoomLevel}"/>
+    	</div>
+    </lightning:card>
+    </aura:if>
+</aura:component>

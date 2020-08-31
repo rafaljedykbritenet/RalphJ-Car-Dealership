@@ -1,0 +1,16 @@
+<aura:component>
+    <aura:registerEvent name="closeModal" type="c:RCD_CreateDivision"/>
+        <div class="slds-p-around_medium">
+            <lightning:recordEditForm aura:id="recordEditForm"
+                           objectApiName="Division__c">
+                <lightning:messages />
+                <lightning:inputField fieldName="Name" />
+                <lightning:inputField fieldName="City__c" />
+                <lightning:inputField fieldName="Country__c" />
+                <lightning:inputField fieldName="Street__c" />
+                <lightning:inputField fieldName="Email__c" />
+                <lightning:inputField fieldName="Phone__c" />
+                <lightning:button variant="brand" type="submit" name="Submit" label="Create" class="slds-m-top_medium" onclick="{!c.closeModal}"/>
+            </lightning:recordEditForm>
+        </div>
+    </aura:component>

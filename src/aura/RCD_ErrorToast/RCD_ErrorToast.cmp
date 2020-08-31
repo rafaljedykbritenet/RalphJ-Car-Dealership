@@ -1,0 +1,4 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:handler event="c:RCD_NoDivisionsFound" action="{!c.showNoDivisionsFoundToast}"/>
+    <aura:handler event="c:RCD_NoDivisionsFound" action="{!c.showNoDivisionsFoundToast}"/>
+</aura:component>
