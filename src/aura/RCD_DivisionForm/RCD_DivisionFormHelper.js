@@ -40,8 +40,8 @@
 
             } else if (state === "ERROR") {
                 let errors = response.getError()[0];
-                helper.showErrorToast(component, errors);
-                theSpinner.hideSpinner();
+//                helper.showErrorToast(component, errors);
+//                theSpinner.hideSpinner();
                 }
         });
         $A.enqueueAction(action);
