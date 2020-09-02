@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="RCD_SelectedCarUpdate">
+    <aura:attribute name="selectedCar" type="Product2"/>
+</aura:event>

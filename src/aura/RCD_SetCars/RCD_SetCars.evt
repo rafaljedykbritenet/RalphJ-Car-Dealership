@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="RCD_SetCars">
+    <aura:attribute name="foundCars" type="List"/>
+</aura:event>
