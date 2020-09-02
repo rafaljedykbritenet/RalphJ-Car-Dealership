@@ -1,4 +1,4 @@
-<aura:component description="RCD_DivisionSearchResults" access="global" implements="flexipage:availableForAllPageTypes">
+<aura:component description="RCD_DivisionSearchResults" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
     <aura:attribute name="divisions" type="List" default="[]"/>
     <aura:attribute name="divisionFound" type="Division__c"/>
     <aura:handler event="c:RCD_SetDivisionsMarkers" action="{!c.handleDivisionsSelect}"/>

@@ -1,4 +1,4 @@
-<aura:component description="RCD_DivisionForm" controller="RCD_DivisionController" access="global" implements="flexipage:availableForAllPageTypes">
+<aura:component description="RCD_DivisionForm" controller="RCD_DivisionController" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
     <aura:attribute name="searchedDivision" type="Division__c"
                     default="{'sobjectType' : 'Division__c', 'Name' : '', 'Country__c' : '', 'City__c' : ''}"/>
     <aura:attribute name="picklistValues" type="Object"/>

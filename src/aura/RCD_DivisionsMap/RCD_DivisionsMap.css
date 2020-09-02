@@ -1,5 +1,7 @@
 .THIS {
-    width: 100%;
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
 }
 .THIS .itemSelected {
     height: 700px;

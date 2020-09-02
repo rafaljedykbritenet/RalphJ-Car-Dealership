@@ -1,4 +1,4 @@
-<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">
     <aura:handler name="RCD_CreateDivision" event="c:RCD_CreateDivision" action="{!c.closeModal}"/>
 <article class="slds-card">
   <div class="slds-card__header slds-grid">
