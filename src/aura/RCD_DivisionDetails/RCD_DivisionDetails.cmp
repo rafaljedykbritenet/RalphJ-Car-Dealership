@@ -1,4 +1,4 @@
-<aura:component description="RCD_DivisionDetails" access="global" implements="flexipage:availableForAllPageTypes">
+<aura:component description="RCD_DivisionDetails" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
     <aura:attribute name="selectedDivision" type="Division__c"/>
     <aura:attribute name="editActive" type="boolean"/>
     <aura:handler event="c:RCD_SelectedDivisionUpdate" action="{!c.handleRowSelection}"/>
@@ -20,14 +20,16 @@
                          <td>
                             <lightning:outputField fieldName="Email__c"/>
                         </td>
-                        <td>
-                            <lightning:outputField fieldName="Phone__c"/>
-                        </td>
                     </tr>
                     <tr>
                         <td>
+                            <lightning:outputField fieldName="Phone__c"/>
+                        </td>
+                        <td>
                             <lightning:outputField fieldName="Country__c"/>
                         </td>
+                    </tr>
+                <tr>
                         <td>
                             <lightning:outputField fieldName="City__c"/>
                         </td>

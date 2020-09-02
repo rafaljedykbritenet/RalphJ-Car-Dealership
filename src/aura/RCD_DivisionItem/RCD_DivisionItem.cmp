@@ -1,4 +1,4 @@
-<aura:component description="RCD_DivisionItem" controller="RCD_DivisionController" access="global" implements="flexipage:availableForAllPageTypes">
+<aura:component description="RCD_DivisionItem" controller="RCD_DivisionController" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
     <aura:attribute name="division" type="Division__c"/>
     <aura:registerEvent name="c:RCD_SelectedDivisionUpdate" type="c:RCD_SelectedDivisionUpdate"/>
     <div onclick="{!c.divisionSelected}">
