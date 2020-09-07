@@ -1,0 +1,12 @@
+<aura:component description="RCD_CarOrders" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+        <div class="slds-grid">
+            <div class="slds-col slds-size_10-of-12">
+                <c:RCD_ErrorToast/>
+                <c:RCD_Basket/>
+            </div>
+            <div class="slds-col slds-size_2-of-12">
+                <c:RCD_CarOrdersList/>
+            </div>
+        </div>
+</aura:component>
+

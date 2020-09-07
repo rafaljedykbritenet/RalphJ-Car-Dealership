@@ -1,0 +1,12 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">
+        <aura:html tag="style">
+            body {
+<!--            background-image: url('https://wallpaperaccess.com/full/1534940.jpg');-->
+<!--            background-image: url('https://4kwallpapers.com/images/walls/thumbs_2t/1522.jpg');-->
+            background-image: url('https://wallpaperaccess.com/full/324697.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            width-min
+            } </aura:html>
+</aura:component>

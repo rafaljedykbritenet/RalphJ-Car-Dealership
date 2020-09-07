@@ -38,9 +38,10 @@
                     <lightning:button label="{!$Label.c.RCD_Search}"
                                       class="slds-m-top--medium"
                                       variant="brand"
-                                      onclick="{!c.searchForDivision}"/>
+                                      onclick="{!c.searchForDivision}"
+                                      />
                     <lightning:button label="{!$Label.c.RCD_Clear}"
-                                      class="slds-m-top--medium"
+                                      class="slds-m-top--medium buttonClear"
                                       variant="neutral" onclick="{!c.clear}"/>
                 </div>
             </form>

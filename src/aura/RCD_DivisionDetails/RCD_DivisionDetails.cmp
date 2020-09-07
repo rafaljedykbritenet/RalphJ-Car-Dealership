@@ -1,21 +1,19 @@
 <aura:component description="RCD_DivisionDetails" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
     <aura:attribute name="selectedDivision" type="Division__c"/>
     <aura:attribute name="editActive" type="boolean"/>
+
     <aura:handler event="c:RCD_SelectedDivisionUpdate" action="{!c.handleRowSelection}"/>
     <aura:handler event="c:RCD_ClearDivisionSearch" action="{!c.handleSearchClear}"/>
 
     <aura:if isTrue="{!v.selectedDivision != undefined}">
     <lightning:card title="{!v.selectedDivision.Name}" iconName="standard:metrics">
-        <div class="slds-float_right">
-        <button class="slds-button slds-button_neutral" onclick="{!c.openEditDialog}">{!$Label.c.RCD_Edit}</button>
-      </div>
-        <lightning:recordViewForm recordId="{!v.selectedDivision.Id}" objectApiName="Division__c">
+        <lightning:recordViewForm class="viewForm" recordId="{!v.selectedDivision.Id}" objectApiName="Division__c">
             
-            <div class="slds-box slds-theme_default">
+            <div>
                 <table>
                     <tr>
-                        <td style="color: blue;" class="first">
-                            <a href="javascipt:void(0)" onclick="{!c.navigateToDivision}"><lightning:outputField fieldName="Name"/></a>
+                        <td style="color: white;" class="first">
+                                <lightning:outputField fieldName="Name"/>
                         </td>
                          <td>
                             <lightning:outputField fieldName="Email__c"/>

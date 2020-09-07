@@ -1,0 +1,69 @@
+<aura:component description="RCD_Basket" controller="RCD_CarController" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="cars" type="List"/>
+    <aura:attribute name="totalPrice" type="Decimal"/>
+    <aura:attribute name="totalOrderPrice" type="Decimal"/>
+
+    <aura:handler name="init" value="this" action="{!c.getBasket}"/>
+    <aura:handler name="RCD_UpdateBasketTotalPriceEvent" event="c:RCD_UpdateBasketTotalPriceEvent"
+                  action="{!c.changeTotalPrice}"/>
+
+    <c:RCD_ErrorToast/>
+
+    <lightning:card class="font-size: 50px" title="Your basket">
+        <div class="slds-p-left_medium slds-p-right_medium">
+            <ul class="slds-list_vertical slds-has-divider_top-space">
+                <aura:if isTrue="{!v.cars.length > 0}">
+                <aura:iteration items="{!v.cars}" var="sCar" indexVar="index">
+                    <aura:if isTrue="{!v.cars.length == 1}">
+                        <li class="itemSelected slds-list__item slds-p-around_small">
+                            <c:RCD_BasketItem car="{!sCar}" totalOrderPrice="{!v.totalOrderPrice}"/>
+                        </li>
+                    </aura:if>
+                    <aura:if isTrue="{!v.cars.length > 1}">
+                        <li class="slds-list__item slds-p-around_small" aura:id="listItem"
+                            data-id="{!index}">
+                            <c:RCD_BasketItem car="{!sCar}" totalOrderPrice="{!v.totalOrderPrice}"/>
+                        </li>
+                    </aura:if>
+                </aura:iteration>
+                </aura:if>
+                <h1 class="slds-m-right_small">Total Order Price:
+                    &nbsp;{!v.totalPrice}</h1>
+                <div class="slds-col">
+                    <span class="slds-m-right_small"></span>
+                </div>
+                <aura:if isTrue="{!v.cars.length > 0}">
+                <div class="slds-float_right">
+                    <button class="slds-button slds-button_brand" onclick="{!c.openmodal}">Submit an Order</button>
+                </div>
+
+                    <div class="slds-col">
+                        <span class="slds-m-right_small"></span>
+                        <span ></span>
+                    </div>
+                    <div class="slds-col">
+                        <span class="slds-m-right_small"></span>
+                    </div>
+                </aura:if>
+            </ul>
+        </div>
+        <div role="dialog" tabindex="-1" aria-labelledby="header43" aura:id="Modalbox" class="slds-modal style: width: 150px">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <button class="slds-button slds-button_neutral slds-modal__close slds-button--icon-inverse" title="{!$Label.c.RCD_Button_Close}" onclick="{!c.closeModal}">X</button>
+                </div>
+                <div class="slds-modal__content slds-p-around--medium ">
+                    <div>
+                        <lightning:button label="Confirm"
+                                          class="slds-m-top--medium; style: margin-right: auto; margin-left: auto"
+                                          variant="brand"
+                                          onclick="{!c.submitOrders}"/>
+                    </div>
+                </div>
+                <div class="slds-modal__footer">
+                </div>
+            </div>
+        </div>
+        <div class="slds-backdrop " aura:id="Modalbackdrop"></div>
+    </lightning:card>
+</aura:component>

@@ -1,5 +1,18 @@
 .THIS {
-     width: 95%;
-        margin-right: auto;
-        margin-left: auto;
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
+    background-image: initial;
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(40, 47, 88);
+    box-shadow: none;
+    color: #e8e6e3
+}
+
+.THIS .slds-form-element__label {
+    color: #e8e6e3;
+}
+
+.THIS .slds-form-element__static {
+    color: rgb(175, 168, 158)
 }

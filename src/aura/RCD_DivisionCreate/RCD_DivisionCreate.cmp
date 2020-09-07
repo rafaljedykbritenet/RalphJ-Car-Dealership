@@ -1,5 +1,6 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes">
     <aura:registerEvent name="closeModal" type="c:RCD_CreateDivision"/>
+
         <div class="slds-p-around_medium">
             <lightning:recordEditForm aura:id="recordEditForm"
                            objectApiName="Division__c">

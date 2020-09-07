@@ -104,7 +104,7 @@
                                   variant="brand"
                                   onclick="{!c.searchForCar}"/>
                 <lightning:button label="{!$Label.c.RCD_Clear}"
-                                  class="slds-m-top--medium"
+                                  class="slds-m-top--medium buttonClear"
                                   variant="neutral" onclick="{!c.clear}"/>
             </div>
         </form>

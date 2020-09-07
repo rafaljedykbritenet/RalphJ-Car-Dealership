@@ -10,7 +10,7 @@
     <aura:handler event="c:RCD_ClearDivisionSearch" action="{!c.handleSearchClear}"/>
 
     <aura:if isTrue="{!v.divisionFound != undefined}">
-    <lightning:card title="Division Map" iconName="standard:address">
+    <lightning:card title="RalphJ Car Dealership Divisions" iconName="standard:address">
 		<div aura:id="listItem">
         <lightning:map mapMarkers="{!v.mapMarkers}" zoomLevel="{!v.zoomLevel}"/>
     	</div>

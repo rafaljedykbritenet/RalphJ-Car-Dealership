@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="RCD_UpdateBasketTotalPriceEvent">
+<!--    <aura:attribute name="totalPrice" type="Decimal"/>-->
+</aura:event>

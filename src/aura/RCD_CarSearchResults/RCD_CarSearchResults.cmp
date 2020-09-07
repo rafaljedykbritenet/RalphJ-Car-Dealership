@@ -1,6 +1,7 @@
 <aura:component description="RCD_CarSearchResults" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
     <aura:attribute name="cars" type="List" default="[]"/>
     <aura:attribute name="carFound" type="Division__c"/>
+
     <aura:handler event="c:RCD_SetCars" action="{!c.handleCarsSelect}"/>
     <aura:handler event="c:RCD_ClearCarSearch" action="{!c.handleSearchClear}"/>
 
@@ -26,7 +27,8 @@
             <div role="dialog" tabindex="-1" aria-labelledby="header43" aura:id="Modalbox" class="slds-modal">
                 <div class="slds-modal__container">
                     <div class="slds-modal__header">
-                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="{!$Label.c.RCD_Button_Close}" onclick="{!c.closeModal}">{!$Label.c.RCD_Button_Close}</button>
+                        <button class="slds-button slds-button_neutral slds-modal__close slds-button--icon-inverse" title="{!$Label.c.RCD_Button_Close}" onclick="{!c.closeModal}">X
+                        </button>
                     </div>
                     <div class="slds-modal__content slds-p-around--medium">
                         <div>

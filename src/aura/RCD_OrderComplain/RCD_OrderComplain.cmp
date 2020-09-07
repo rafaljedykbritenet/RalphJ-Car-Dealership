@@ -1,0 +1,45 @@
+    <aura:component description="RCD_OrderComplain" controller="RCD_CarController" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+        <aura:attribute name="contactId" type="String" default="0032X00002RJB8VQAX"/>
+        <aura:attribute name="complainForm" type="Case"
+                        default="{'sobjectType' : 'Case', 'Subject' : '', 'Description' : '', 'Product2' : ''}"/>
+
+        <aura:attribute name="picklistValuesBrand" type="Object"/>
+        <aura:attribute name="picklistValuesModel" type="Object"/>
+
+        <c:RCD_PickListValues2 sObjectName="Product2" fieldName="Brand__C" picklistValues="{!v.picklistValuesBrand}"/>
+        <c:RCD_PickListValues2 sObjectName="Product2" fieldName="Id" picklistValues="{!v.picklistValuesModel}"/>
+
+        <lightning:card title="Is something wrong?">
+            <form>
+                <div class="slds-m-around--small">
+                    <lightning:select label=""
+                                      aura:id="searchForm"
+                                      value="{!v.complainForm.ComplainCarBrand__c}">
+                        <option value="">Choose brand</option>
+                        <aura:iteration items="{!v.picklistValuesBrand}" var="item">
+                            <option value="{!item}">{!item}</option>
+                        </aura:iteration>
+                    </lightning:select>
+                </div>
+                <div class="slds-m-around--small">
+                    <lightning:input aura:id="searchform"
+                                     label="Type model"
+                                     value="{!v.complainForm.ComplainCarModel__c}"/>
+                </div>
+                <div class="slds-m-around--small">
+                    <lightning:input aura:id="searchform"
+                                     label="Subject"
+                                     value="{!v.complainForm.Subject}"/>
+                </div>
+                <div class="slds-m-around--small">
+                    <lightning:textarea value="{!v.complainForm.Description}" name="Description" label="Description" />
+                </div>
+                <div class="slds-m-around--medium slds-align_absolute-center">
+                    <lightning:button label="Submit"
+                                      class="slds-m-top--medium"
+                                      variant="brand"
+                                        onclick="{!c.submitComplainOne}"/>
+                </div>
+            </form>
+        </lightning:card>
+    </aura:component>
