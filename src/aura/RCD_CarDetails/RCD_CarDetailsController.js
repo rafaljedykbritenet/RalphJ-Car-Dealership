@@ -16,6 +16,10 @@
         component.set("v.editActive", false);
     },
 
+     setAddedToCart: function (component, event, helper) {
+        component.set('v.addedToCart', false);
+     },
+
      handleRowSelection: function (component, event, helper) {
         let carSelected = event.getParam("selectedCar");
         component.set('v.selectedCar', carSelected);
@@ -42,5 +46,6 @@
             }
         });
         $A.enqueueAction(action);
+        component.set("v.addedToCart", true);
      }
 })

@@ -7,7 +7,6 @@
         });
         let contactId = component.get("v.contactId");
         let action = component.get("c.searchOrders");
-            action.setParams({"siteUserId" : contactId});
             action.setCallback(this, function(response) {
             let state = response.getState();
             let foundOrders = [];
@@ -29,7 +28,6 @@
         });
         let contactId = component.get("v.contactId");
         let action = component.get("c.searchBasket");
-            action.setParams({"siteUserId" : contactId});
             action.setCallback(this, function(response) {
             if (response.getReturnValue().length != 0){
                 totalPrice = response.getReturnValue()[0].orderPrice;

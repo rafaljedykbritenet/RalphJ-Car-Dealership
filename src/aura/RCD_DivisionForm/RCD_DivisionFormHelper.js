@@ -11,7 +11,6 @@
 
         action.setCallback(this, function(response) {
         let state = response.getState();
-
             if (state === "SUCCESS") {
                 if (response.getReturnValue().length == 0) {
                     component.set("v.noDivisionsFound", false);
@@ -40,8 +39,6 @@
 
             } else if (state === "ERROR") {
                 let errors = response.getError()[0];
-//                helper.showErrorToast(component, errors);
-//                theSpinner.hideSpinner();
                 }
         });
         $A.enqueueAction(action);

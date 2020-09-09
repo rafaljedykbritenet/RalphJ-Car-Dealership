@@ -4,6 +4,7 @@ public with sharing class RCD_DivisionController {
 
     @AuraEnabled
     public static List<DivisionResult> searchDivisions(Division__c searchedDivision) {
+        System.debug('Zaczynam w apex');
         String nameParam, emailParam, cityParam;
         String query = 'SELECT Id, Name, Street__c, Country__c, City__c FROM Division__c WHERE Country__c = \'' + searchedDivision.Country__c + '\'';
 
@@ -28,7 +29,7 @@ public with sharing class RCD_DivisionController {
         } catch (Exception exc) {
          System.debug('Error');
         }
-
+        System.debug('Resulty => ' + results);
         return results;
     }
    

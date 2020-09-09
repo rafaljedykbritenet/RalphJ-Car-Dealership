@@ -9,16 +9,12 @@
         theSpinner.showSpinner(component);
         action.setCallback(this, function(response) {
         let state = response.getState();
-        console.log('State => ' + state);
             if (state === "SUCCESS") {
-                 console.log('Response length => ' + response.getReturnValue().length);
                 if (response.getReturnValue().length == 0) {
                     component.set("v.noCarsFound", false);
-//                    if (searchedCar.Brand__c != "") {
                         console.log('No cars found before event fire => ' + response.getReturnValue().length);
                         let searchResultsEmptyEvent =$A.get("e.c:RCD_NoCarsFound");
                             searchResultsEmptyEvent.fire();
-//                    }
                     theSpinner.hideSpinner();
                     return;
                 } else if (response.getReturnValue().length == 1) {

@@ -17,28 +17,26 @@
                     <lightning:input aura:id="searchform"
                                      label="{!$Label.c.RCD_Name}"
                                      value="{!v.searchedDivision.Name}"/>
-                </div>
-                <div class="slds-m-around--small">
+
                     <lightning:select label="{!$Label.c.RCD_Country}"
                                       aura:id="searchForm"
                                       value="{!v.searchedDivision.Country__c}"
                                       required="true">
-                        <option value="">{!$Label.c.RCD_SelectACountry}</option>
+                        <option value=""></option>
                         <aura:iteration items="{!v.picklistValues}" var="item">
                             <option value="{!item}">{!item}</option>
                         </aura:iteration>
                     </lightning:select>
-                </div>
-                <div class="slds-m-around--small">
                     <lightning:input aura:id="searchform"
                                      label="{!$Label.c.RCD_CIty}"
                                      value="{!v.searchedDivision.City__c}"/>
                 </div>
                 <div class="slds-m-around--medium slds-align_absolute-center">
                     <lightning:button label="{!$Label.c.RCD_Search}"
-                                      class="slds-m-top--medium"
+                                      class="slds-m-top--medium mujbaton"
                                       variant="brand"
                                       onclick="{!c.searchForDivision}"
+                                      disabled="{!v.searchedDivision.Country__c==''}"
                                       />
                     <lightning:button label="{!$Label.c.RCD_Clear}"
                                       class="slds-m-top--medium buttonClear"

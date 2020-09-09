@@ -27,13 +27,11 @@
                 <lightning:select label="Brand"
                                   aura:id="searchForm"
                                   value="{!v.searchedCar.Brand__c}">
-                    <option value="">Select a brand</option>
+                    <option value=""></option>
                     <aura:iteration items="{!v.picklistValues}" var="item">
                         <option value="{!item}">{!item}</option>
                     </aura:iteration>
                 </lightning:select>
-            </div>
-            <div class="slds-m-around--small">
                 <lightning:input aura:id="searchform"
                                  label="Model"
                                  value="{!v.searchedCar.Model__c}"/>
@@ -46,52 +44,43 @@
                 <lightning:input aura:id="searchform"
                                  label="Minimum Capacity"
                                  value="{!v.searchedCar.Capacity__c}"/>
-            </div>
-            <div class="slds-m-around--small">
+
                 <lightning:select label="Fuel Type"
                                   aura:id="searchForm"
                                   value="{!v.searchedCar.Fuel__c}">
-                    <option value="">Select fuel type</option>
+                    <option value=""></option>
                     <aura:iteration items="{!v.picklistValuesFuel}" var="item">
                         <option value="{!item}">{!item}</option>
                     </aura:iteration>
                 </lightning:select>
-            </div>
-            <div class="slds-m-around--small">
                 <lightning:select label="Number of Doors"
                                   aura:id="searchForm"
                                   value="{!v.searchedCar.Doors__c}">
-                    <option value="">Select number of Doors</option>
+                    <option value=""></option>
                     <aura:iteration items="{!v.picklistValuesDoors}" var="item">
                         <option value="{!item}">{!item}</option>
                     </aura:iteration>
                 </lightning:select>
-            </div>
-            <div class="slds-m-around--small">
                 <lightning:select label="Drive Type"
                                   aura:id="searchForm"
                                   value="{!v.searchedCar.Drive_Type__c}">
-                    <option value="">Select drive type</option>
+                    <option value=""></option>
                     <aura:iteration items="{!v.picklistValuesDrive}" var="item">
                         <option value="{!item}">{!item}</option>
                     </aura:iteration>
                 </lightning:select>
-            </div>
-            <div class="slds-m-around--small">
                 <lightning:select label="Transmition"
                                   aura:id="searchForm"
                                   value="{!v.searchedCar.Transmition__c}">
-                    <option value="">Select transmition</option>
+                    <option value=""></option>
                     <aura:iteration items="{!v.picklistValuesTransmition}" var="item">
                         <option value="{!item}">{!item}</option>
                     </aura:iteration>
                 </lightning:select>
-            </div>
-            <div class="slds-m-around--small">
                 <lightning:select label="Color"
                                   aura:id="searchForm"
                                   value="{!v.searchedCar.Color__c}">
-                    <option value="">Select color</option>
+                    <option value=""></option>
                     <aura:iteration items="{!v.picklistValuesColor}" var="item">
                         <option value="{!item}">{!item}</option>
                     </aura:iteration>

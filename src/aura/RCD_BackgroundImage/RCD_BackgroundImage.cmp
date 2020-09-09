@@ -3,7 +3,8 @@
             body {
 <!--            background-image: url('https://wallpaperaccess.com/full/1534940.jpg');-->
 <!--            background-image: url('https://4kwallpapers.com/images/walls/thumbs_2t/1522.jpg');-->
-            background-image: url('https://wallpaperaccess.com/full/324697.jpg');
+<!--            background-image: url('https://wallpaperaccess.com/full/324697.jpg');-->
+            height: 1800px;
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;

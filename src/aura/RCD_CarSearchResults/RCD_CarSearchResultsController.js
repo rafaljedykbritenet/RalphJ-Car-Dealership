@@ -1,6 +1,5 @@
 ({
     addClass : function (component, event, helper) {
-        console.log("Add class method enetered");
         helper.addClass(component, event, helper);
     },
 
@@ -22,6 +21,8 @@
     },
 
     openmodal: function(component,event,helper) {
+        let addToCartEvent =$A.get("e.c:RCD_CarAddedToCartEvent");
+            addToCartEvent.fire();
         var cmpTarget = component.find('Modalbox');
         var cmpBack = component.find('Modalbackdrop');
         $A.util.addClass(cmpTarget, 'slds-fade-in-open');

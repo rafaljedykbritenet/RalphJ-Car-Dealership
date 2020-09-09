@@ -27,6 +27,9 @@
     },
 
     updateAmount : function(component, event, helper) {
+        let amount = component.get("v.amountForOneType");
+        let carAmountAvailable = component.get("v.car.PricebookEntry.Product2.Amount__c");
+        if (amount <= carAmountAvailable && amount >= 0) {
         var formatter = new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'EUR',
@@ -35,9 +38,10 @@
         let totalForOne = component.get("v.totalUnformatedPriceForOneType");
         let totalOrderPrice = component.get("v.totalOrderPrice");
             totalOrderPrice = totalOrderPrice - totalForOne;
-
         let carId = component.get("v.car.PricebookEntry.Product2.Id");
-        let amount = component.get("v.amountForOneType");
+//        let amount = component.get("v.amountForOneType");
+//        let carAmountAvailable = component.get("v.car.PricebookEntry.Product2.Amount__c");
+//        if (amount <= carAmountAvailable)
         let totalPrice = component.get("v.car.UnitPrice");
             totalPrice = totalPrice * amount;
             totalOrderPrice = totalOrderPrice + totalPrice;
@@ -56,12 +60,20 @@
             if (amount == 0) {
             component.set("v.carInBasket", false);
         }
-    },
+        }
+        },
 
     carSelected : function(component, event, helper) {
         let selectedCar = component.get("v.car");
         let SelectedCarUpdateEvent =$A.get("e.c:RCD_SelectedCarUpdate");
             SelectedCarUpdateEvent.setParams({"selectedCar" : selectedCar});
             SelectedCarUpdateEvent.fire();
+    },
+
+    deleteCarFromCart : function(component, event, helper) {
+        component.set("v.amountForOneType", 0);
+        let deleteAction = component.get("c.updateAmount");
+        $A.enqueueAction(deleteAction);
     }
+
 })

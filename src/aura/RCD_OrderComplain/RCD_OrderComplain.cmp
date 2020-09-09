@@ -1,5 +1,6 @@
     <aura:component description="RCD_OrderComplain" controller="RCD_CarController" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
         <aura:attribute name="contactId" type="String" default="0032X00002RJB8VQAX"/>
+        <aura:attribute name="complainComplete" type="Boolean" default="false"/>
         <aura:attribute name="complainForm" type="Case"
                         default="{'sobjectType' : 'Case', 'Subject' : '', 'Description' : '', 'Product2' : ''}"/>
 
@@ -9,8 +10,9 @@
         <c:RCD_PickListValues2 sObjectName="Product2" fieldName="Brand__C" picklistValues="{!v.picklistValuesBrand}"/>
         <c:RCD_PickListValues2 sObjectName="Product2" fieldName="Id" picklistValues="{!v.picklistValuesModel}"/>
 
-        <lightning:card title="Is something wrong?">
+        <lightning:card>
             <form>
+                <h2>Is something wrong?</h2>
                 <div class="slds-m-around--small">
                     <lightning:select label=""
                                       aura:id="searchForm"
@@ -28,17 +30,20 @@
                 </div>
                 <div class="slds-m-around--small">
                     <lightning:input aura:id="searchform"
+                                     onchange="{!c.verifyComplainState}"
                                      label="Subject"
+                                     required="true"
                                      value="{!v.complainForm.Subject}"/>
                 </div>
                 <div class="slds-m-around--small">
-                    <lightning:textarea value="{!v.complainForm.Description}" name="Description" label="Description" />
+                    <lightning:textarea onchange="{!c.verifyComplainState}" required="true" value="{!v.complainForm.Description}" name="Description" label="Description" />
                 </div>
                 <div class="slds-m-around--medium slds-align_absolute-center">
                     <lightning:button label="Submit"
+                                      disabled="{!!v.complainComplete}"
                                       class="slds-m-top--medium"
                                       variant="brand"
-                                        onclick="{!c.submitComplainOne}"/>
+                                      onclick="{!c.submitComplainOne}"/>
                 </div>
             </form>
         </lightning:card>

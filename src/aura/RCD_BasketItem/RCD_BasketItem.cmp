@@ -13,6 +13,7 @@
     <aura:registerEvent name="RCD_UpdateBasketTotalPriceEvent" type="c:RCD_UpdateBasketTotalPriceEvent"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <c:RCD_Spinner aura:id="spinner"/>
 
     <aura:if isTrue="{!v.carInBasket}">
     <div class="slds-grid " onclick="{!c.carSelected}">
@@ -25,23 +26,17 @@
             </div>
             <div class="slds-grid slds-gutters">
                 <div class="slds-col slds-size_1-of-12">
-                    <lightning:select onchange="{!c.updateAmount}" aura:id="searchForm" variant="label-hidden" class="formatDropDown"
+                    <lightning:select label="Amount" onchange="{!c.updateAmount}" aura:id="searchForm" class="formatDropDown"
                                       value="{!v.amountForOneType}">
-                        <option value="">{!v.car.Quantity}</option>
                         <aura:iteration items="{!v.carAmount}" var="item">
-                            <aura:if isTrue="{!item==0}">
-                            <option value="{!item}">Remove</option>
-                            </aura:if>
-                            <aura:if isTrue="{!item!=0}">
-                            <option value="{!item}">{!item}</option>
+                            <aura:if isTrue="{!item != 0}">
+                                <option value="{!item}">{!item}</option>
                             </aura:if>
                         </aura:iteration>
                     </lightning:select>
                     </div>
-            </div>
-            <div class="slds-grid slds-gutters">
-                <div class="slds-col slds-size_1-of-3">
-                <span class="slds-text-color_weak slds-text-heading_small slds-m-bottom_xx-small">Choose amount</span>
+                <div style="margin-top: 24px">
+                <lightning:buttonIcon iconName="utility:delete" onclick="{!c.deleteCarFromCart}" alternativeText="Remove" title="Remove"/>
                 </div>
             </div>
             <div class="slds-grid slds-gutters">

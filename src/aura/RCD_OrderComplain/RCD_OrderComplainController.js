@@ -20,5 +20,16 @@
         component.set("v.complainForm.Description", '');
         component.set("v.complainForm.ComplainCarModel__c", '');
         component.set("v.complainForm.ComplainCarBrand__c", undefined);
+        component.set("v.complainComplete", false);
     },
+
+    verifyComplainState : function(component, event, helper) {
+        let subjectState = component.get("v.complainForm.Subject");
+        let descriptionState = component.get("v.complainForm.Description");
+        if (subjectState.length > 0 && descriptionState.length >5){
+            component.set("v.complainComplete", true);
+        } else {
+            component.set("v.complainComplete", false);
+        }
+    }
 })

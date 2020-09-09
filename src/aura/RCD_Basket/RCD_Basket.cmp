@@ -8,6 +8,7 @@
                   action="{!c.changeTotalPrice}"/>
 
     <c:RCD_ErrorToast/>
+    <c:RCD_Spinner aura:id="spinner"/>
 
     <lightning:card class="font-size: 50px" title="Your basket">
         <div class="slds-p-left_medium slds-p-right_medium">
@@ -36,7 +37,6 @@
                 <div class="slds-float_right">
                     <button class="slds-button slds-button_brand" onclick="{!c.openmodal}">Submit an Order</button>
                 </div>
-
                     <div class="slds-col">
                         <span class="slds-m-right_small"></span>
                         <span ></span>
@@ -54,8 +54,11 @@
                 </div>
                 <div class="slds-modal__content slds-p-around--medium ">
                     <div>
+                        <div>
+                        <h2 >Are you sure?</h2>
+                        </div>
                         <lightning:button label="Confirm"
-                                          class="slds-m-top--medium; style: margin-right: auto; margin-left: auto"
+                                          class="slds-m-top--medium"
                                           variant="brand"
                                           onclick="{!c.submitOrders}"/>
                     </div>
