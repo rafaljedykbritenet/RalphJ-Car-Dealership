@@ -27,7 +27,7 @@
                 <lightning:select label="Brand"
                                   aura:id="searchForm"
                                   value="{!v.searchedCar.Brand__c}">
-                    <option value=""></option>
+                    <option value="">All cars</option>
                     <aura:iteration items="{!v.picklistValues}" var="item">
                         <option value="{!item}">{!item}</option>
                     </aura:iteration>

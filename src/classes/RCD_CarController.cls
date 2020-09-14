@@ -32,14 +32,28 @@ public with sharing class RCD_CarController {
         Account account = [SELECT Id FROM account WHERE name = 'Rafal Jedyk'];
         Contact contact = [SELECT FirstName, LastName FROM Contact WHERE Id = :user.ContactId];
         Order basket = [SELECT Id, ContractId from order WHERE Contact__c = :user.ContactId AND Status = 'Basket'];
-        List<OrderItem> orderItems = [SELECT Id, Quantity FROM OrderItem WHERE OrderId = :basket.Id];
+        List<OrderItem> orderItems = [SELECT Id, Quantity, Product2Id FROM OrderItem WHERE OrderId = :basket.Id];
+        List<Product2> carsInOrder = new List<Product2>();
+        for (OrderItem orderItem : orderItems) {
+            Product2 carInBasket = [SELECT Id, Brand__c , Amount__c from Product2 WHERE Id =: orderItem.Product2Id];
+            carInBasket.Amount__c = carInBasket.Amount__c - orderItem.Quantity;
+            carsInOrder.add(carInBasket);
+        }
+        update carsInOrder;
+
         Contract oldContract = [SELECT Status FROM Contract WHERE Id = :basket.ContractId LIMIT 1];
         oldContract.Status = 'Activated';
         update oldContract;
 
         basket.Status = 'Done';
         basket.EffectiveDate = System.Date.today();
-        basket.name = contact.FirstName + ' ' + contact.LastName + ' ' + basket.EffectiveDate.format();
+        List<Order> ordersSubmitted = [SELECT Id FROM Order WHERE EffectiveDate = :basket.EffectiveDate AND Status = 'Done' AND Contact__c = :contact.Id];
+        if ( ordersSubmitted.size() == 0 ) {
+            basket.name = contact.FirstName + ' ' + contact.LastName + ' ' + basket.EffectiveDate.format();
+        } else {
+            basket.name = contact.FirstName + ' ' + contact.LastName + ' ' + basket.EffectiveDate.format() + ' #' + ordersSubmitted.size();
+        }
+
         update basket;
 
         Contract contract = new Contract();
@@ -61,7 +75,7 @@ public with sharing class RCD_CarController {
     }
 
     @AuraEnabled
-    public static void submitComplain(String siteUserId, String complainSubject, String complainDescription, String complainBrand, String complainModel) {
+    public static void submitComplain(String siteUserId, String complainSubject, String complainDescription, String complainBrand, String complainModel, String order) {
         User user = [SELECT ContactId FROM User WHERE Id = :UserInfo.getUserId()];
         Account account = [SELECT Id FROM account WHERE name = 'Rafal Jedyk'];
         Contact contact = [SELECT Id, FirstName, LastName FROM Contact WHERE Id = :user.ContactId];
@@ -71,6 +85,8 @@ public with sharing class RCD_CarController {
         complain.Subject = complainSubject;
         complain.ComplainCarBrand__c = complainBrand;
         complain.ComplainCarModel__c = complainModel;
+        Order orderToComplain = [SELECT Id FROM Order WHERE Name = :order LIMIT 1];
+        complain.Order__c = orderToComplain.Id;
         complain.Description = complainDescription;
         complain.Type = 'Car Dealership Complain';
         complain.Origin = 'Web';

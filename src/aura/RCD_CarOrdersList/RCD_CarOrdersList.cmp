@@ -41,7 +41,7 @@
                 </div>
                 <div class="slds-modal__content slds-p-around--medium">
                     <div>
-                        <c:RCD_OrderComplain/>
+                        <c:RCD_OrderComplain clientOrders="{!v.orders}"/>
                     </div>
                 </div>
                 <div class="slds-modal__footer">

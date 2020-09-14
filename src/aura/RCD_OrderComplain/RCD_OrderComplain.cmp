@@ -1,4 +1,5 @@
     <aura:component description="RCD_OrderComplain" controller="RCD_CarController" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+        <aura:attribute name="clientOrders" type="List"/>
         <aura:attribute name="contactId" type="String" default="0032X00002RJB8VQAX"/>
         <aura:attribute name="complainComplete" type="Boolean" default="false"/>
         <aura:attribute name="complainForm" type="Case"
@@ -13,6 +14,16 @@
         <lightning:card>
             <form>
                 <h2>Is something wrong?</h2>
+                <div class="slds-m-around--small">
+                    <lightning:select label=""
+                                      aura:id="searchForm"
+                                      value="{!v.complainForm.Order__c}">
+                        <option value="">Attach your Order</option>
+                        <aura:iteration items="{!v.clientOrders}" var="item">
+                            <option value="{!item.Name}">{!item.Name}</option>
+                        </aura:iteration>
+                    </lightning:select>
+                </div>
                 <div class="slds-m-around--small">
                     <lightning:select label=""
                                       aura:id="searchForm"

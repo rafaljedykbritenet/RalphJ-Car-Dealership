@@ -62,7 +62,7 @@
                     </tr>
                    
                 </table>
-                <lightning:carousel disableAutoRefresh="false" disableAutoScroll="false">
+                <lightning:carousel disableAutoRefresh="false" disableAutoScroll="true">
                     <lightning:carouselImage
                             src = "{!v.selectedCar.Picture__c}"
                             class="carousel_Image_Custom"
@@ -77,9 +77,6 @@
                             alternativeText = "Third card accessible description.">
                     </lightning:carouselImage>
                 </lightning:carousel>
-<!--            <div class="slds-align_absolute-center">-->
-<!--                <img src="{!v.selectedCar.Picture__c}"/>-->
-<!--            </div>-->
             </div>
         </lightning:recordViewForm>
     </div>
