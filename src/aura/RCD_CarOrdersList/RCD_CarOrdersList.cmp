@@ -1,0 +1,53 @@
+<aura:component description="RCD_CarOrdersList" controller="RCD_CarController" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="orders" type="List"/>
+    <aura:attribute name="totalPrice" type="Decimal"/>
+    <aura:attribute name="totalOrderPrice" type="Decimal"/>
+    <aura:attribute name="contactId" type="String" default=""/>
+
+    <aura:handler name="init" value="this" action="{!c.getOrders}"/>
+    <aura:handler event="c:RCD_ToastEvent" action="{!c.getOrders}"/>
+    <aura:handler name="RCD_UpdateBasketTotalPriceEvent" event="c:RCD_UpdateBasketTotalPriceEvent"
+                  action="{!c.changeTotalPrice}"/>
+
+    <lightning:card class="font-size: 50px" title="Your Orders">
+        <div class="slds-p-left_medium slds-p-right_medium">
+            <ul class="slds-list_vertical slds-has-divider_top-space">
+                <aura:if isTrue="{!v.orders.length > 0}">
+                    <div>
+                        <button class="slds-button slds-button_brand" onclick="{!c.openmodal}">Ask a Question</button>
+                    </div>
+                </aura:if>
+                <aura:if isTrue="{!v.orders.length > 0}">
+                    <aura:iteration items="{!v.orders}" var="sOrder" indexVar="index">
+                        <aura:if isTrue="{!v.orders.length == 1}">
+                            <li class="itemSelected slds-list__item slds-p-around_small">
+                                <c:RCD_OrderItem order="{!sOrder}"/>
+                            </li>
+                        </aura:if>
+                        <aura:if isTrue="{!v.orders.length > 1}">
+                            <li class="slds-list__item slds-p-around_small" aura:id="listItem"
+                                data-id="{!index}">
+                                <c:RCD_OrderItem order="{!sOrder}"/>
+                            </li>
+                        </aura:if>
+                    </aura:iteration>
+                </aura:if>
+            </ul>
+        </div>
+        <div role="dialog" tabindex="-1" aria-labelledby="header43" aura:id="Modalbox" class="slds-modal">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <button class="slds-button slds-button_neutral slds-modal__close slds-button--icon-inverse" title="{!$Label.c.RCD_Button_Close}" onclick="{!c.closeModal}">X</button>
+                </div>
+                <div class="slds-modal__content slds-p-around--medium">
+                    <div>
+                        <c:RCD_OrderComplain clientOrders="{!v.orders}"/>
+                    </div>
+                </div>
+                <div class="slds-modal__footer">
+                </div>
+            </div>
+        </div>
+        <div class="slds-backdrop " aura:id="Modalbackdrop"></div>
+    </lightning:card>
+</aura:component>

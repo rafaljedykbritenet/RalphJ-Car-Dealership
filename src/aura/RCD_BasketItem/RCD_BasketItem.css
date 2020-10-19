@@ -1,0 +1,33 @@
+.THIS {
+     height: 150px;
+}
+
+.THIS img {
+    height: 140px;
+    width: 200px;
+}
+
+.THIS h1 {
+    text-align: right;
+    font-size: 26px;
+}
+.THIS .slds-form-element__label {
+    color: rgb(175, 168, 158);
+}
+.THIS .buttonClear {
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(40, 47, 88);
+    color: #e8e6e3;
+    width: 10px;
+    height: 10x;
+}
+.THIS .slds-button_icon {
+          color: rgb(217, 219, 221);
+          border-color: rgb(68, 80, 149);
+      }
+
+.THIS.slds-spinner_container {
+    z-index: 100000;
+    position: fixed;
+    opacity: 0.4;
+}

@@ -1,4 +1,4 @@
-<aura:component description="RCD_DivisionSearchResults" access="global" implements="flexipage:availableForAllPageTypes">
+<aura:component description="RCD_DivisionSearchResults" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
     <aura:attribute name="divisions" type="List" default="[]"/>
     <aura:attribute name="divisionFound" type="Division__c"/>
     <aura:handler event="c:RCD_SetDivisionsMarkers" action="{!c.handleDivisionsSelect}"/>
@@ -10,7 +10,7 @@
             <ul class="slds-list_vertical slds-has-divider_top-space">
                 <aura:iteration items="{!v.divisions}" var="sDivision" indexVar="index">
                     <aura:if isTrue="{!v.divisions.length == 1}">
-                        <li class="itemSelected slds-list__item slds-p-around_small">
+                        <li class="slds-list__item slds-p-around_small">
                             <c:RCD_DivisionItem division="{!sDivision}"/>
                         </li>
                     </aura:if>

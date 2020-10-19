@@ -1,0 +1,33 @@
+<aura:component description="RCD_OrderItem" controller="RCD_CarController" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+        <aura:attribute name="order" type="Order"/>
+        <aura:attribute name="unitPrice" type="Decimal"/>
+        <aura:attribute name="totalOrderPrice" type="Decimal"/>
+        <aura:attribute name="orderInformationOpened" type="Boolean" default="false"/>
+        <aura:registerEvent name="c:RCD_SelectedCarUpdate" type="c:RCD_SelectedCarUpdate"/>
+        <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+        <div class="slds-grid">
+            <div>
+                <div class="slds-grid orderName" onclick="{!c.openOrder}">
+                    <h3 class="slds-text-heading_small slds-m-bottom_xx-small">{!v.order.Name}</h3>
+                </div>
+
+                <div>
+                    <div>
+                    <span class="slds-text-color_weak slds-m-right_small slds-size--1-of-2">Total Order Price:
+                            {!v.totalOrderPrice}</span></div>
+                    <aura:if isTrue="{!v.orderInformationOpened}">
+                        <aura:iteration items="{!v.order.OrderItems}" var="item">
+                    <div><span class="slds-text-color_weak slds-m-right_small slds-size--1-of-2">Car:
+                            {!item.PricebookEntry.Product2.Name}</span></div>
+                    <div><span class="slds-text-color_weak slds-m-right_small slds-size--1-of-2">Quantity:
+                            {!item.Quantity}</span></div>
+<!--                    <div><span class="slds-text-color_weak slds-m-right_small slds-size&#45;&#45;1-of-2">Unit Price:-->
+<!--                            {!item.PricebookEntry.Product2.Price__c}</span></div>-->
+                        </aura:iteration>
+                    </aura:if>
+                </div>
+
+            </div>
+        </div>
+</aura:component>

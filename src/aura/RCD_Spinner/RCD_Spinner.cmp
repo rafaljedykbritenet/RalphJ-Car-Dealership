@@ -1,4 +1,4 @@
-<aura:component description="RCD_Spinner">
+<aura:component description="RCD_Spinner" implements="forceCommunity:availableForAllPageTypes">
     <aura:attribute name="Spinner" type="Boolean"/>
     <aura:method name="showSpinner" action="{!c.showSpinner}"/>
     <aura:method name="hideSpinner" action="{!c.hideSpinner}"/>

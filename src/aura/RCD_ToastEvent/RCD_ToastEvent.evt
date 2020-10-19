@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION" description="RCD_ToastEvent">
+    <aura:attribute name="titleParam" type="String"/>
+    <aura:attribute name="messageParam" type="String"/>
+    <aura:attribute name="typeParam" type="String"/>
+</aura:event>

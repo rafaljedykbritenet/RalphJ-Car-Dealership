@@ -1,0 +1,11 @@
+<aura:component description="RCD_CarSearchMain" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+    <div class="slds-grid">
+        <div class="slds-col slds-size_4-of-12">
+            <c:RCD_ErrorToast/>
+            <c:RCD_CarForm/>
+        </div>
+        <div class="slds-col slds-size_8-of-12">
+            <c:RCD_CarSearchResults/>
+        </div>
+    </div>
+</aura:component>

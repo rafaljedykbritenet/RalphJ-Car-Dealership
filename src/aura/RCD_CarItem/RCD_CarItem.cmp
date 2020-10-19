@@ -1,0 +1,39 @@
+<aura:component description="RCD_CarItem" controller="RCD_CarController" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="car" type="Product2"/>
+    <aura:attribute name="carURL" type="String" default=""/>
+    <aura:attribute name="unitPriceForOneType" type="Decimal"/>
+
+    <aura:registerEvent name="c:RCD_SelectedCarUpdate" type="c:RCD_SelectedCarUpdate"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="slds-grid" onclick="{!c.carSelected}">
+    <div class="slds-col slds-size_4-of-12">
+    <img class="carItem_Picture" src="{!v.carURL}"/>
+    </div>
+        <div class="slds-col slds-size_1-of-12"/>
+    <div class="slds-col slds-size_7-of-12">
+        <div class="slds-grid">
+            <h3 class="slds-text-heading_small slds-m-bottom_xx-small">{!v.car.Name}</h3>
+        </div>
+            <div class="slds-col slds-size_1-of-3">
+                <span class="slds-text-color_weak slds-m-right_small slds-size--1-of-2">{!'Production Year ' + v.car.Year__c}</span>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+                <span class="slds-text-color_weak slds-m-right_small slds-size--1-of-2">{!'Price: ' + v.unitPriceForOneType}</span>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+                <span class="slds-text-color_weak slds-m-right_small slds-size--1-of-2">{!'Gear: ' + v.car.Transmition__c}</span>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+                <span class="slds-text-color_weak slds-m-right_small slds-size--1-of-2">{!'Power: ' + v.car.Power__c + ' Km'}</span>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+                <span class="slds-text-color_weak slds-m-right_small slds-size--1-of-2">{!'Fuel: ' + v.car.Fuel__c}</span>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+                    <span class="slds-text-color_weak slds-m-right_small slds-size--1-of-2">{!'Amount: ' + v.car.Amount__c}</span>
+            </div>
+            </div>
+    </div>
+</aura:component>

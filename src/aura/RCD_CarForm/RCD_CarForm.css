@@ -1,0 +1,34 @@
+.THIS .amountText{
+    text-align: bottom;
+}
+
+.THIS {
+    background-image: initial;
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(40, 47, 88);
+    box-shadow: none;
+    color: #e8e6e3
+}
+
+.THIS .buttonClear {
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(40, 47, 88);
+    color: #e8e6e3
+}
+
+.THIS .slds-select {
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(68, 80, 149);
+    color: #e8e6e3
+}
+
+.THIS .slds-input {
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(68, 80, 149);
+    color: #e8e6e3
+}
+
+.THIS .slds-form-element__label {
+    color: rgb(175, 168, 158);
+}
+ 

@@ -1,0 +1,13 @@
+<aura:component description="RCD_DivisionSearchMain" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+   <div class="slds-grid">
+        <div class="slds-col slds-size_4-of-12">
+            <c:RCD_ErrorToast/>
+            <c:RCD_DivisionForm/>
+            <c:RCD_DivisionSearchResults/>
+        </div>
+        <div class="slds-col slds-size_8-of-12">
+             <c:RCD_DivisionsMap/>
+             <c:RCD_DivisionDetails/>
+        </div>
+   </div>
+</aura:component>

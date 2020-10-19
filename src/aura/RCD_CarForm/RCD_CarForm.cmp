@@ -1,0 +1,101 @@
+<aura:component description="RCD_CarForm" controller="RCD_CarController" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="searchedCar" type="Product2"
+                    default="{'sobjectType' : 'Product2', 'Brand__c' : '', 'Model__c' : '', 'Power__c' : ''}"/>
+    <aura:attribute name="picklistValues" type="Object"/>
+    <aura:attribute name="picklistValuesFuel" type="Object"/>
+    <aura:attribute name="picklistValuesDoors" type="Object"/>
+    <aura:attribute name="picklistValuesDrive" type="Object"/>
+    <aura:attribute name="picklistValuesTransmition" type="Object"/>
+    <aura:attribute name="picklistValuesColor" type="Object"/>
+    <aura:attribute name="noCarsFound" type="Boolean" default="false"/>
+
+    <aura:registerEvent name="RCD_ClearCarSearch" type="c:RCD_ClearCarSearch"/>
+    <aura:registerEvent name="RCD_SelectedCarUpdate" type="c:RCD_SelectedCarUpdate"/>
+    <aura:registerEvent name="RCD_NoCarsFound" type="c:RCD_NoCarsFound"/>
+
+    <c:RCD_PickListValues2 sObjectName="Product2" fieldName="Brand__c" picklistValues="{!v.picklistValues}" />
+    <c:RCD_PickListValues2 sObjectName="Product2" fieldName="Fuel__c" picklistValues="{!v.picklistValuesFuel}"/>
+    <c:RCD_PickListValues2 sObjectName="Product2" fieldName="Doors__C" picklistValues="{!v.picklistValuesDoors}"/>
+    <c:RCD_PickListValues2 sObjectName="Product2" fieldName="Drive_Type__c" picklistValues="{!v.picklistValuesDrive}"/>
+    <c:RCD_PickListValues2 sObjectName="Product2" fieldName="Transmition__c" picklistValues="{!v.picklistValuesTransmition}"/>
+    <c:RCD_PickListValues2 sObjectName="Product2" fieldName="Color__c" picklistValues="{!v.picklistValuesColor}"/>
+    <c:RCD_Spinner aura:id="spinner"/>
+
+    <lightning:card title="Search for Cars">
+        <form>
+            <div class="slds-m-around--small">
+                <lightning:select label="Brand"
+                                  aura:id="searchForm"
+                                  value="{!v.searchedCar.Brand__c}">
+                    <option value="">All cars</option>
+                    <aura:iteration items="{!v.picklistValues}" var="item">
+                        <option value="{!item}">{!item}</option>
+                    </aura:iteration>
+                </lightning:select>
+                <lightning:input aura:id="searchform"
+                                 label="Model"
+                                 value="{!v.searchedCar.Model__c}"/>
+                <lightning:input aura:id="searchform"
+                                 label="Maximum Price"
+                                 value="{!v.searchedCar.Price__c}"/>
+                <lightning:input aura:id="searchform"
+                                 label="Minimum Power"
+                                 value="{!v.searchedCar.Power__c}"/>
+                <lightning:input aura:id="searchform"
+                                 label="Minimum Capacity"
+                                 value="{!v.searchedCar.Capacity__c}"/>
+
+                <lightning:select label="Fuel Type"
+                                  aura:id="searchForm"
+                                  value="{!v.searchedCar.Fuel__c}">
+                    <option value=""></option>
+                    <aura:iteration items="{!v.picklistValuesFuel}" var="item">
+                        <option value="{!item}">{!item}</option>
+                    </aura:iteration>
+                </lightning:select>
+                <lightning:select label="Number of Doors"
+                                  aura:id="searchForm"
+                                  value="{!v.searchedCar.Doors__c}">
+                    <option value=""></option>
+                    <aura:iteration items="{!v.picklistValuesDoors}" var="item">
+                        <option value="{!item}">{!item}</option>
+                    </aura:iteration>
+                </lightning:select>
+                <lightning:select label="Drive Type"
+                                  aura:id="searchForm"
+                                  value="{!v.searchedCar.Drive_Type__c}">
+                    <option value=""></option>
+                    <aura:iteration items="{!v.picklistValuesDrive}" var="item">
+                        <option value="{!item}">{!item}</option>
+                    </aura:iteration>
+                </lightning:select>
+                <lightning:select label="Transmition"
+                                  aura:id="searchForm"
+                                  value="{!v.searchedCar.Transmition__c}">
+                    <option value=""></option>
+                    <aura:iteration items="{!v.picklistValuesTransmition}" var="item">
+                        <option value="{!item}">{!item}</option>
+                    </aura:iteration>
+                </lightning:select>
+                <lightning:select label="Color"
+                                  aura:id="searchForm"
+                                  value="{!v.searchedCar.Color__c}">
+                    <option value=""></option>
+                    <aura:iteration items="{!v.picklistValuesColor}" var="item">
+                        <option value="{!item}">{!item}</option>
+                    </aura:iteration>
+                </lightning:select>
+            </div>
+
+            <div class="slds-m-around--medium slds-align_absolute-center">
+                <lightning:button label="{!$Label.c.RCD_Search}"
+                                  class="slds-m-top--medium"
+                                  variant="brand"
+                                  onclick="{!c.searchForCar}"/>
+                <lightning:button label="{!$Label.c.RCD_Clear}"
+                                  class="slds-m-top--medium buttonClear"
+                                  variant="neutral" onclick="{!c.clear}"/>
+            </div>
+        </form>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,53 @@
+.THIS .details {
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgb(45, 49, 51);
+    background: rgb(45, 49, 51);
+    border-color: rgb(40, 47, 88);
+    color: #e8e6e3
+}
+
+.THIS .slds-modal__content {
+    background-color: rgb(45, 49, 51);
+    border-color: rgb(40, 47, 88);
+}
+
+.THIS .slds-modal__header {
+    background-color: rgb(45, 49, 51);
+    border-color: rgb(40, 47, 88);
+}
+
+.THIS .slds-form-element__static {
+    color: #e8e6e3;
+    border-color: rgb(40, 47, 88);
+}
+
+.THIS .slds-card__header {
+    background-color: rgb(45, 49, 51);
+    color: #e8e6e3;
+    border-color: rgb(68, 80, 149);
+}
+
+.THIS .slds-card {
+    background-color: rgb(45, 49, 51);
+    color: #e8e6e3;
+    border-color: rgb(68, 80, 149);
+}
+
+.THIS .slds-box {
+    padding: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgb(40, 47, 88);
+}
+
+.THIS .slds-box1 {
+    padding: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgb(68, 80, 149)
+}
+.THIS .slds-button_brand:disabled {
+          background-color: #135f90;
+          border-color: #135f90;
+          color: #ffffff;
+      }

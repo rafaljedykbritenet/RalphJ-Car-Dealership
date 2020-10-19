@@ -1,0 +1,66 @@
+.THIS h1 {
+    text-align: right;
+    font-size: 26px;
+}
+
+.THIS h2 {
+    text-align: center;
+    font-size: 20px;
+}
+
+ .THIS {
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
+    background-image: initial;
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(40, 47, 88);
+    box-shadow: none;
+    color: #e8e6e3
+ }
+
+.THIS .slds-text-color_weak {
+          color: rgb(175, 168, 158);
+          font-size: .8625rem;
+      }
+
+.THIS .slds-has-divider_top-space {
+    border-top: 1px solid rgb(40, 47, 88);
+
+}
+
+.THIS .slds-select {
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(68, 80, 149);
+    color: #e8e6e3
+}
+
+.THIS .slds-modal__content {
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(40, 47, 88);
+    width: 400px;
+        margin-left: 100px;
+}
+
+.THIS .slds-modal__header {
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(40, 47, 88);
+    width: 400px;
+    margin-left: 100px;
+}
+
+.THIS .slds-modal__footer {
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(40, 47, 88);
+    width: 400px;
+    margin-left: 100px;
+}
+
+.THIS .slds-button--icon-inverse {
+    color: #e8e6e3;
+    background-color: rgb(105, 115, 125);
+}
+
+.THIS .slds-button_brand {
+    margin-left: 142px;
+}

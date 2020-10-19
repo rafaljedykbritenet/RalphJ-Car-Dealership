@@ -1,0 +1,45 @@
+<aura:component description="RCD_CarSearchResults" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="cars" type="List" default="[]"/>
+    <aura:attribute name="carFound" type="Division__c"/>
+
+    <aura:handler event="c:RCD_SetCars" action="{!c.handleCarsSelect}"/>
+    <aura:handler event="c:RCD_ClearCarSearch" action="{!c.handleSearchClear}"/>
+
+    <aura:if isTrue="{!v.carFound != undefined}">
+        <lightning:card title="Our Cars">
+            <div class="slds-p-left_medium slds-p-right_medium">
+                <ul class="slds-list_vertical slds-has-divider_top-space">
+                    <aura:iteration items="{!v.cars}" var="sCar" indexVar="index">
+                        <aura:if isTrue="{!v.cars.length == 1}">
+                            <li class="itemSelected slds-list__item slds-p-around_small" onclick="{!c.openmodal}">
+                                <c:RCD_CarItem car="{!sCar}"/>
+                            </li>
+                        </aura:if>
+                        <aura:if isTrue="{!v.cars.length > 1}">
+                            <li class="slds-list__item slds-p-around_small" aura:id="listItem"
+                                data-id="{!index}" onclick="{!c.openmodal}">
+                                <c:RCD_CarItem car="{!sCar}"/>
+                            </li>
+                        </aura:if>
+                    </aura:iteration>
+                </ul>
+            </div>
+            <div role="dialog" tabindex="-1" aria-labelledby="header43" aura:id="Modalbox" class="slds-modal">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        <button class="slds-button slds-button_neutral slds-modal__close slds-button--icon-inverse" title="{!$Label.c.RCD_Button_Close}" onclick="{!c.closeModal}">X
+                        </button>
+                    </div>
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <div>
+                            <c:RCD_CarDetails/>
+                        </div>
+                    </div>
+                    <div class="slds-modal__footer">
+                    </div>
+                </div>
+            </div>
+            <div class="slds-backdrop " aura:id="Modalbackdrop"></div>
+        </lightning:card>
+    </aura:if>
+</aura:component>

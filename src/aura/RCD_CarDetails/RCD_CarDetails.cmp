@@ -1,0 +1,85 @@
+<aura:component description="RCD_DivisionDetails" controller="RCD_CarController" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="selectedCar" type="Product2"/>
+    <aura:attribute name="addedToCart" type="boolean" default="false"/>
+    <aura:attribute name="contactId" type="String" default="0032X00002RJB8VQAX"/>
+    <aura:attribute name="carsAmount" type="Integer" default='undefined'/>
+    <aura:attribute name="picklistValues" type="Object"/>
+
+    <aura:handler event="c:RCD_SelectedCarUpdate" action="{!c.handleRowSelection}"/>
+    <aura:handler event="c:RCD_ClearCarSearch" action="{!c.handleSearchClear}"/>
+    <aura:handler event="c:RCD_CarAddedToCartEvent" action="{!c.setAddedToCart}"/>
+
+    <c:RCD_PickListValues2 sObjectName="Product2" fieldName="Amount__c" picklistValues="{!v.picklistValues}" />
+
+    <aura:if isTrue="{!v.selectedCar != undefined}">
+    <lightning:card  class="details" title="{!v.selectedCar.Name}">
+    <div class="slds-box" style="background: rgb(45, 49, 51);background-color: rgb(45, 49, 51);color:#e8e6e3">
+        <lightning:recordViewForm recordId="{!v.selectedCar.Id}" objectApiName="Product2" >
+            <div class="slds-float_right">
+                <button disabled="{!v.addedToCart}" class="slds-button slds-button_brand" onclick="{!c.addToCart}">Add to Cart</button>
+            </div>
+            <div class="slds-box1" style="background: rgb(45, 49, 51);background-color: rgb(45, 49, 51);color:#e8e6e3">
+                <table title="Engine Details">
+                    <tr title="Engine Details">
+                        <td style="color: blue;" class="first">
+                                <lightning:outputField fieldName="Price__c"/>
+                        </td>
+                         <td>
+                            <lightning:outputField fieldName="Fuel__c"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <lightning:outputField fieldName="Year__c"/>
+                        </td>
+                        <td>
+                            <lightning:outputField fieldName="Capacity__c"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <lightning:outputField fieldName="Mileage__c"/>
+                        </td>
+                        <td>
+                            <lightning:outputField fieldName="Power__c"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <lightning:outputField fieldName="Color__c"/>
+                        </td>
+                        <td>
+                            <lightning:outputField fieldName="Transmition__c"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <lightning:outputField fieldName="Doors__c"/>
+                        </td>
+                        <td>
+                            <lightning:outputField fieldName="Drive_Type__c"/>
+                        </td>
+                    </tr>
+                   
+                </table>
+                <lightning:carousel disableAutoRefresh="false" disableAutoScroll="true">
+                    <lightning:carouselImage
+                            src = "{!v.selectedCar.Picture__c}"
+                            class="carousel_Image_Custom"
+                            alternativeText = "First card accessible description.">
+                    </lightning:carouselImage>
+                    <lightning:carouselImage
+                            src = "https://img.tipcars.com/fotky_velke/48047176_1/1573572593/E/bmw-m3-30-jahre-edition.jpg"
+                            alternativeText = "Second card accessible description.">
+                    </lightning:carouselImage>
+                    <lightning:carouselImage
+                            src = "https://i.wpimg.pl/616x0/m.autokult.pl/gtr-616x370-fb71efc5eab6f9e17ed7,0,0,0,0.jpg"
+                            alternativeText = "Third card accessible description.">
+                    </lightning:carouselImage>
+                </lightning:carousel>
+            </div>
+        </lightning:recordViewForm>
+    </div>
+    </lightning:card>
+    </aura:if>
+</aura:component>

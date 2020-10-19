@@ -1,0 +1,82 @@
+.THIS .slds-m-around--small {
+    background-color: rgb(24, 26, 27);
+     border-color: rgb(40, 47, 88);
+     color: #e8e6e3}
+
+.THIS .slds-form-element__static {
+    color: #e8e6e3;
+    border-color: rgb(40, 47, 88);
+}
+
+.THIS .slds-box {
+    padding: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgb(40, 47, 88);
+}
+
+.THIS .slds-box1 {
+    padding: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgb(68, 80, 149)
+}
+
+.THIS .buttonClear {
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(40, 47, 88);
+    color: #e8e6e3
+}
+
+.THIS .slds-select {
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(40, 47, 88);
+    color: #e8e6e3
+}
+
+.THIS .slds-input {
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(40, 47, 88);
+    color: #e8e6e3
+}
+
+.THIS .slds-textarea {
+ background-color: rgb(24, 26, 27);
+    border-color: rgb(40, 47, 88);
+    color: #e8e6e3;
+}
+
+.THIS .slds-form-element__label {
+    color: rgb(175, 168, 158);
+}
+
+.THIS.slds-card {
+    background-color: rgb(24, 26, 27);
+    color: #e8e6e3;
+    border-color: rgb(68, 80, 149);
+}
+
+.THIS .slds-card__header {
+    background-color: rgb(24, 26, 27);
+}
+
+.THIS .slds-card__body {
+    background-color: rgb(24, 26, 27);
+}
+
+.THIS .slds-card__footer {
+    background-color: rgb(24, 26, 27);
+}
+
+.THIS .slds-m-around_medium {
+    background-color: rgb(24, 26, 27);
+}
+
+.THIS h2 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.THIS .slds-button_brand[disabled] {
+          background: #0e63ac;
+          border-color: #0e63ac;
+          color: #ffffff;
+      }

@@ -1,4 +1,4 @@
-<aura:component description="RCD_PickListValues2" controller="RCD_PickListValuesControler" access="global">
+<aura:component description="RCD_PickListValues2" controller="RCD_PickListValuesControler" access="global" implements="forceCommunity:availableForAllPageTypes">
     <aura:attribute name="sObjectName" type="String"/>
     <aura:attribute name="fieldName" type="String"/>
     <aura:attribute name="emptyMessage" type="String"/>

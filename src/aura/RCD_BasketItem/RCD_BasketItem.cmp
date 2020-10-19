@@ -1,0 +1,57 @@
+<aura:component description="RCD_BasketItem" controller="RCD_CarController" access="global" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="car" type="OrderItem"/>
+    <aura:attribute name="amountForOneType" type="Decimal"/>
+    <aura:attribute name="unitPriceForOneType" type="Decimal"/>
+    <aura:attribute name="totalUnformatedPriceForOneType" type="Decimal"/>
+    <aura:attribute name="totalPriceForOneType" type="Decimal"/>
+    <aura:attribute name="totalOrderPrice" type="Decimal"/>
+    <aura:attribute name="carInBasket" type="Boolean" default="true"/>
+    <aura:attribute name="carURL" type="String" default=""/>
+    <aura:attribute name="carAmount" type="Integer[]"/>
+
+    <aura:registerEvent name="c:RCD_SelectedCarUpdate" type="c:RCD_SelectedCarUpdate"/>
+    <aura:registerEvent name="RCD_UpdateBasketTotalPriceEvent" type="c:RCD_UpdateBasketTotalPriceEvent"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <c:RCD_Spinner aura:id="spinner"/>
+
+    <aura:if isTrue="{!v.carInBasket}">
+    <div class="slds-grid " onclick="{!c.carSelected}">
+        <div class="picture slds-col slds-size_3-of-12">
+            <img src="{!v.carURL}"/>
+        </div>
+        <div class="slds-col slds-size_9-of-12">
+            <div class="slds-grid">
+                <h1 class="slds-text-heading_small slds-m-bottom_xx-small">{!v.car.PricebookEntry.Product2.Name}</h1>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-12">
+                    <lightning:select label="Amount" onchange="{!c.updateAmount}" aura:id="searchForm" class="formatDropDown"
+                                      value="{!v.amountForOneType}">
+                        <aura:iteration items="{!v.carAmount}" var="item">
+                            <aura:if isTrue="{!item != 0}">
+                                <option value="{!item}">{!item}</option>
+                            </aura:if>
+                        </aura:iteration>
+                    </lightning:select>
+                    </div>
+                <div style="margin-top: 24px">
+                <lightning:buttonIcon iconName="utility:delete" onclick="{!c.deleteCarFromCart}" alternativeText="Remove" title="Remove"/>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-3">
+                <span class="slds-text-color_weak slds-text-heading_small slds-m-bottom_xx-small">Unit Price:
+                    &nbsp;{!v.unitPriceForOneType}</span>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-3">
+                <span class="slds-text-color_weak slds-text-heading_small slds-m-bottom_xx-small">Total Price:
+                    &nbsp;{!v.totalPriceForOneType}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,10 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">
+        <aura:html tag="style">
+            body {
+            height: 1800px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            width-min
+            } </aura:html>
+</aura:component>

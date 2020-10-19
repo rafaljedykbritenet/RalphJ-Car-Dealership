@@ -1,0 +1,12 @@
+.THIS .slds-text-color_weak {
+          color: rgb(175, 168, 158)
+      }
+.THIS .slds-text-heading_small {
+          font-size: 1.5rem;
+          line-height: 1.25;
+      }
+.THIS .carItem_Picture {
+           min-height: 200px;
+           border: 2px solid rgb(40, 47, 88);
+
+       }

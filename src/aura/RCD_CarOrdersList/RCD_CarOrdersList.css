@@ -1,0 +1,30 @@
+.THIS .slds-modal__content {
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(40, 47, 88);
+}
+
+.THIS .slds-modal__header {
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(40, 47, 88);
+}
+
+.THIS .slds-modal__footer {
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(40, 47, 88);
+    display: none;
+}
+
+ .THIS {
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(40, 47, 88);
+    color: #e8e6e3
+ }
+
+.THIS .slds-has-divider_top-space {
+    border-top: 1px solid rgb(40, 47, 88);
+}
+
+.THIS .slds-button--icon-inverse {
+    color: #e8e6e3;
+    background-color: rgb(105, 115, 125);
+}
