@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <types>
+        <members>RCD_CarController</members>
+        <members>RCD_DivisionController</members>
+        <members>RCD_PickListValuesControler</members>
+        <members>OpportunityRegHandler</members>
+        <name>ApexClass</name>
+    </types>
+
+
+     <types>
+        <members>RCD_ClearDivisionSearch</members>
+        <members>RCD_CreateDivision</members>
+        <members>RCD_DivisionCreate</members>
+        <members>RCD_DivisionDetails</members>
+        <members>RCD_DivisionEdit</members>
+        <members>RCD_DivisionForm</members>
+        <members>RCD_DivisionItem</members>
+        <members>RCD_DivisionSearchResults</members>
+        <members>RCD_DivisionsMap</members>
+        <members>RCD_ErrorToast</members>
+        <members>RCD_NoDivisionsFound</members>
+        <members>RCD_PickListValues2</members>
+        <members>RCD_SearchForDivisions</members>
+        <members>RCD_SelectedDivisionUpdate</members>
+        <members>RCD_SetDivisionsMarkers</members>
+        <members>RCD_Spinner</members>
+        <members>SFD_Header</members>
+
+        <members>RCD_BackgroundImage</members>
+        <members>RCD_Basket</members>
+        <members>RCD_BasketChangeAmountEvent</members>
+        <members>RCD_BasketItem</members>
+        <members>RCD_CarAddedToCartEvent</members>
+        <members>RCD_CarDetails</members>
+        <members>RCD_CarForm</members>
+        <members>RCD_CarItem</members>
+        <members>RCD_CarOrders</members>
+        <members>RCD_CarOrdersList</members>
+        <members>RCD_CarSearchMain</members>
+        <members>RCD_CarSearchResults</members>
+        <members>RCD_NoCarsFound</members>
+        <members>RCD_DivisionSearchMain</members>
+        <members>RCD_NoCarsFound</members> 
+        <members>RCD_OrderComplain</members> 
+        <members>RCD_SelectedCarUpdate</members> 
+        <members>RCD_SetCars</members> 
+        <members>RCD_ToastEvent</members> 
+        <members>RCD_UpdateBasketTotalPriceEvent</members> 
+
+        <members>RCD_OrderItem</members>
+        <members>RCD_ClearCarSearch</members>
+
+        <name>AuraDefinitionBundle</name>
+    </types>
+
+    <types>
+        <members>Product2.Price__c</members>
+        <members>Product2.Drive_Type__c</members>
+        <members>Product2.Brand__c</members>
+        <members>Product2.Amount__c</members>
+        <members>Product2.Picture__c</members>
+
+        <members>Product2.Year__c</members>
+        <members>Product2.Power__c</members>
+        <members>Product2.Model__c</members>
+        <members>Product2.Fuel__c</members>
+        <members>Product2.Transmition__c</members>
+
+        <members>Product2.Color__c</members>
+        <members>Product2.Doors__c</members>
+        <members>Product2.Capacity__c</members>
+
+        <members>Case.Order__c</members>
+        <members>Case.ComplainCarBrand__c</members>
+        <members>Case.ComplainCarModel__c</members>
+
+        <members>Order.Contact__c</members>
+        <name>CustomField</name>
+    </types>
+
+    <types>
+        <members>Division__c</members>
+        <name>CustomObject</name>
+    </types>
+
+    <types>
+        <members>RCD_Button_Close</members>
+        <members>RCD_Button_New</members>
+        <members>Label_c_RCD_Header_CreateDivision</members>
+        <members>RCD_Header_CreateDivision</members>
+        <members>RCD_Name</members>
+        <members>RCD_Country</members>
+        <members>RCD_SelectACountry</members>
+        <members>RCD_CIty</members>
+        <members>RCD_Search</members>
+        <members>RCD_Clear</members>
+        <members>RCD_SearchForDivisions</members>
+        <members>RCD_Divisions</members>
+        <members>RCD_Save</members>
+        <members>RCD_EditDivision</members>
+        <members>RCD_Edit</members>
+        <members>RCD_NoDivisions</members>
+        
+        <name>CustomLabel</name>
+    </types>
+    <version>48.0</version>
+</Package>
